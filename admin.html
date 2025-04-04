@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - EcoSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="/admin">
+                <span class="eco">Eco</span><span class="swap">Swap</span>
+                <span class="admin-badge">Admin</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">View Site</a></li>
+            <li class="notifications">
+                <a href="#" id="notif-toggle">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-badge">5</span>
+                </a>
+                <div class="notifications-dropdown">
+                    <div class="notif-item unread">
+                        <p><strong>New Report:</strong> Inappropriate content in listing #1234</p>
+                        <span class="notif-time">5 mins ago</span>
+                    </div>
+                    <div class="notif-item unread">
+                        <p><strong>New User:</strong> Requires approval</p>
+                        <span class="notif-time">15 mins ago</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user-menu">
+                <a href="#" class="active">
+                    <img src="https://via.placeholder.com/32" alt="Admin" class="avatar-small">
+                    <span>Admin</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-info">
+                        <h3>1,234</h3>
+                        <p>Active Users</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div class="stat-info">
+                        <h3>456</h3>
+                        <p>Total Trades</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-flag"></i>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Open Reports</p>
+                    </div>
+                </div>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#dashboard" class="active"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="#users"><i class="fas fa-users"></i> Manage Users</a>
+                <a href="#listings"><i class="fas fa-box"></i> Manage Listings</a>
+                <a href="#reports"><i class="fas fa-flag"></i> Reports</a>
+                <a href="#categories"><i class="fas fa-tags"></i> Categories</a>
+                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <section class="dashboard-header">
+                <h1>Admin Dashboard</h1>
+                <div class="header-actions">
+                    <button class="action-btn"><i class="fas fa-download"></i> Export Data</button>
+                    <button class="action-btn primary"><i class="fas fa-plus"></i> Add Category</button>
+                </div>
+            </section>
+
+            <section class="admin-grid">
+                <div class="admin-card users">
+                    <div class="card-header">
+                        <h2>Recent Users</h2>
+                        <div class="card-actions">
+                            <input type="search" placeholder="Search users..." class="search-input">
+                            <button class="filter-btn"><i class="fas fa-filter"></i></button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Status</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/32" alt="User" class="avatar-small">
+                                            <div>
+                                                <strong>John Doe</strong>
+                                                <span>john@example.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>2024-02-15</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="icon-btn" title="View"><i class="fas fa-eye"></i></button>
+                                            <button class="icon-btn warning" title="Block"><i class="fas fa-ban"></i></button>
+                                            <button class="icon-btn danger" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- More user rows here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="admin-card listings">
+                    <div class="card-header">
+                        <h2>Pending Listings</h2>
+                        <div class="card-actions">
+                            <select class="filter-select">
+                                <option>All Categories</option>
+                                <option>Electronics</option>
+                                <option>Furniture</option>
+                                <option>Clothing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="listings-grid admin-listings">
+                        <div class="listing-card pending">
+                            <div class="listing-image">
+                                <img src="https://via.placeholder.com/300x200" alt="Item">
+                                <div class="listing-actions">
+                                    <button class="approve-btn" title="Approve"><i class="fas fa-check"></i></button>
+                                    <button class="reject-btn" title="Reject"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <div class="listing-info">
+                                <h3>Vintage Camera</h3>
+                                <p>Listed by: Sarah Smith</p>
+                                <div class="listing-meta">
+                                    <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                                    <span class="category">Electronics</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- More listing cards here -->
+                    </div>
+                </div>
+
+                <div class="admin-card reports">
+                    <div class="card-header">
+                        <h2>Recent Reports</h2>
+                        <button class="view-all-btn">View All</button>
+                    </div>
+                    <div class="reports-list">
+                        <div class="report-item">
+                            <div class="report-header">
+                                <div class="report-type warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Content</span>
+                                </div>
+                                <span class="report-time">1 hour ago</span>
+                            </div>
+                            <p class="report-content">Inappropriate content in listing "Vintage Camera"</p>
+                            <div class="report-actions">
+                                <button class="action-btn small">Review</button>
+                                <button class="action-btn small danger">Remove Listing</button>
+                            </div>
+                        </div>
+                        <!-- More report items here -->
+                    </div>
+                </div>
+
+                <div class="admin-card categories">
+                    <div class="card-header">
+                        <h2>Categories</h2>
+                        <button class="action-btn small"><i class="fas fa-plus"></i> Add New</button>
+                    </div>
+                    <div class="categories-list">
+                        <div class="category-item">
+                            <div class="category-info">
+                                <i class="fas fa-laptop"></i>
+                                <div>
+                                    <h4>Electronics</h4>
+                                    <span>124 items</span>
+                                </div>
+                            </div>
+                            <div class="category-actions">
+                                <button class="icon-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="icon-btn danger" title="Delete"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <!-- More category items here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EcoSwap</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="/">
+                <span class="eco">Eco</span><span class="swap">Swap</span>
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/browse">Browse Items</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="notifications">
+                <a href="#" id="notif-toggle">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-badge">3</span>
+                </a>
+                <div class="notifications-dropdown">
+                    <div class="notif-item unread">
+                        <p>New swap offer for your "Vintage Camera"</p>
+                        <span class="notif-time">2 mins ago</span>
+                    </div>
+                    <div class="notif-item unread">
+                        <p>Message from Sarah about "Garden Tools"</p>
+                        <span class="notif-time">1 hour ago</span>
+                    </div>
+                    <div class="notif-item">
+                        <p>Your listing "Mountain Bike" was viewed 10 times</p>
+                        <span class="notif-time">3 hours ago</span>
+                    </div>
+                </div>
+            </li>
+            <li class="user-menu">
+                <a href="#" class="active">
+                    <img src="https://via.placeholder.com/32" alt="Profile" class="avatar-small">
+                    <span>John Doe</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="profile-section">
+                <div class="profile-header">
+                    <img src="https://via.placeholder.com/150" alt="Profile" class="avatar-large">
+                    <h2>John Doe</h2>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</p>
+                </div>
+                <div class="profile-bio">
+                    <p>Eco-enthusiast passionate about sustainable living and reducing waste through trading.</p>
+                </div>
+                <button class="edit-profile-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#listings" class="active"><i class="fas fa-box"></i> My Listings</a>
+                <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <section class="dashboard-header">
+                <h1>My Dashboard</h1>
+                <button class="new-listing-btn" id="newListingBtn">
+                    <i class="fas fa-plus"></i> New Listing
+                </button>
+            </section>
+
+            <section class="my-listings">
+                <h2>My Listings</h2>
+                <div class="listings-grid">
+                    <div class="listing-card">
+                        <div class="listing-image">
+                            <img src="https://via.placeholder.com/300x200" alt="Vintage Camera">
+                            <div class="listing-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="listing-info">
+                            <h3>Vintage Camera</h3>
+                            <p>Excellent condition, perfect for collectors</p>
+                            <div class="listing-meta">
+                                <span><i class="fas fa-eye"></i> 24 views</span>
+                                <span><i class="fas fa-exchange-alt"></i> 3 offers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More listing cards can be added here -->
+                </div>
+            </section>
+
+            <section class="message-center">
+                <h2>Message Center</h2>
+                <div class="messages-container">
+                    <div class="chat-list">
+                        <div class="chat-item active">
+                            <img src="https://via.placeholder.com/40" alt="Sarah" class="avatar-small">
+                            <div class="chat-info">
+                                <h4>Sarah Smith</h4>
+                                <p>About: Garden Tools</p>
+                            </div>
+                            <span class="unread-badge">2</span>
+                        </div>
+                        <!-- More chat items can be added here -->
+                    </div>
+                    <div class="chat-window">
+                        <div class="chat-header">
+                            <h3>Sarah Smith</h3>
+                            <p>Garden Tools</p>
+                        </div>
+                        <div class="chat-messages">
+                            <!-- Messages will be populated here -->
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type your message...">
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- New Listing Modal -->
+    <div class="modal" id="newListingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Listing</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form class="listing-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="books">Books</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Images</label>
+                    <div class="image-upload-container">
+                        <div class="image-upload">
+                            <input type="file" accept="image/*" multiple>
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drop images here or click to upload</p>
+                        </div>
+                        <div class="image-preview"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="wanted">Items Wanted in Exchange</label>
+                    <textarea id="wanted" rows="2" placeholder="Describe what you're looking to trade for..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="submit-btn">Create Listing</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html> 
